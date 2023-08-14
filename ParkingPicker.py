@@ -1,8 +1,10 @@
 import cv2
 import pickle
 
+# length and breadth of each parking space
 w, h = 107, 45
 
+# Loading the pickle file that has the positions of the parking spaces
 try:
     with open('ParkingPos', 'rb') as f:
         posList = pickle.load(f)
@@ -10,7 +12,9 @@ try:
 except:
     posList = []
 
+# Defining the function that will be used to mark the parking spaces manually and load the coordinates of the parking spaces into the pickle file
 def mouseClick(events, x, y, flags, para):
+    # left click of the mouse is used for marking a parking space and right click of the mouse is used for deletion of a parking space
     if events == cv2.EVENT_LBUTTONDOWN:
         posList.append((x,y))
     if events == cv2.EVENT_RBUTTONDOWN:
@@ -22,6 +26,7 @@ def mouseClick(events, x, y, flags, para):
     with open('ParkingPos', 'wb') as f:
         pickle.dump(posList, f)
 
+# Displaying the parking spaces as rectangles in the parking lot image
 while True:
     img = cv2.imread('carParkImg.png')
 
