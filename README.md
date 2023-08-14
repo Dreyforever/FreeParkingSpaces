@@ -8,4 +8,4 @@ Note:
 4. carParking.png is the image that has been used to create the pickle file by manually marking alle the possible parking spaces.
 
 
-The required libraries are : Opencv-python, time, pickle, numpy, cvzone
+The required libraries are : Opencv-python, pickle, numpy, cvzone
